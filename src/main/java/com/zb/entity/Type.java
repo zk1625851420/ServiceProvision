@@ -7,6 +7,16 @@ public class Type {
     private int typeId;
 	private String typeName;
 
+    public int getTypeTow() {
+        return typeTow;
+    }
+
+    public void setTypeTow(int typeTow) {
+        this.typeTow = typeTow;
+    }
+
+    private int typeTow;
+
     public int getTypeId() {
         return typeId;
     }
@@ -28,6 +38,7 @@ public class Type {
         return "Type{" +
                 "typeId=" + typeId +
                 ", typeName='" + typeName + '\'' +
+                ", typeTow=" + typeTow +
                 '}';
     }
 }
