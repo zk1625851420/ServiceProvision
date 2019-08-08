@@ -1,0 +1,39 @@
+server:
+  port: 8662
+
+spring:
+  application:
+    name: ServiceProvision
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/musicmv?serverTimezone=UTC
+    username: root
+    password: ok
+
+  jackson:
+    date-format:  yyyy-MM-dd
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.zb.entity
+  configuration:
+    auto-mapping-behavior: full
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    com.zb.dao: debug
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic

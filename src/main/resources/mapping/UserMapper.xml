@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zb.dao.UserMapper">
+
+    <insert id="addUserByNameAndPwd" parameterType="User">
+        insert into `user`(`phone`,`password`) value(#{phone},#{password})
+    </insert>
+
+    <select id="validatePhoneByUser" parameterType="String" resultType="int">
+        select count(*) from `user` where phone=#{phone}
+    </select>
+
+    <select id="loginUser" parameterType="User" resultType="User">
+        select * from `user` u
+        <where>
+            <if test="phone !=null and phone!=''">
+                and u.`phone`=#{phone}
+            </if>
+            <if test="password !=null and password!=''">
+                and u.`password`=#{password}
+            </if>
+        </where>
+    </select>
+
+</mapper>
