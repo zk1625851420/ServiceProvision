@@ -30,4 +30,8 @@ public class UserController {
         return us.loginUser(user);
     }
 
+    @RequestMapping("/test")
+    public String test(){
+
+    }
 }
